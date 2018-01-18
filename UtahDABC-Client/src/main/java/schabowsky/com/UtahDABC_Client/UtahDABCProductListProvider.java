@@ -53,7 +53,7 @@ public class UtahDABCProductListProvider {
     }
     
     //Run every 24 hours
-	@Scheduled(fixedRate = 86400000)
+	@Scheduled(cron="0 0 5 * * ?", zone = "America/Denver")
 	public void sendPriceList() throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();
@@ -85,6 +85,7 @@ public class UtahDABCProductListProvider {
 			log.error("Problem Parsing or Accessing Price list");
 			throw e;
 		}
+		log.info("Run ended: Now sleeping per the scheduled timer");
 	}
 
 	private List<Product> getPriceList()
