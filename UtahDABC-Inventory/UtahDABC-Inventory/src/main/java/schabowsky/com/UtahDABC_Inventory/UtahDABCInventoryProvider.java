@@ -63,6 +63,7 @@ public class UtahDABCInventoryProvider implements MessageListener {
 
 	@JmsListener(destination = "GetInventoryProductData_Queue")
 	public void onMessage(Message msg) {
+	
 		ObjectMapper mapper = new ObjectMapper();
 		TextMessage txtmsg = (TextMessage) msg;
 		Product incomingProduct = null;
