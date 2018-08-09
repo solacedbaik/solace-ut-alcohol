@@ -54,6 +54,7 @@ public class UtahDABCProductListProvider {
     
     //Run every 24 hours
 	@Scheduled(cron="0 0 5 * * ?", zone = "America/Denver")
+    //@Scheduled(fixedRate=86400000)
 	public void sendPriceList() throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();
