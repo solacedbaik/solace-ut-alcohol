@@ -1,6 +1,9 @@
 package com.solace.demo.utahdabc.datamodel;
 
-public class StoreInventory {
+import java.io.Serializable;
+
+public class StoreInventory implements Serializable {
+	private static final long serialVersionUID = 5941790188871403179L;
 	private String storeID;
 	private String storeName;
 	private int productQty;

@@ -1,7 +1,9 @@
 package com.solace.demo.utahdabc.datamodel;
 
-public class Product
-{
+import java.io.Serializable;
+
+public class Product implements Serializable {
+	private static final long serialVersionUID = 2432837060554236279L;
 	private String name;
 	private String div_code;
 	private String dept_code;
