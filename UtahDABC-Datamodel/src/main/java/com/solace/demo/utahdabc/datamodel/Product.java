@@ -1,6 +1,7 @@
 package com.solace.demo.utahdabc.datamodel;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 public class Product implements Serializable {
 	private static final long serialVersionUID = 2432837060554236279L;
@@ -17,6 +18,12 @@ public class Product implements Serializable {
 	private String SPA;
 	
 	private String tags;
+	
+	private ZonedDateTime _timestamp;
+	
+	public Product() {
+		_timestamp = ZonedDateTime.now();
+	}
 	
 	public String getName() {
 		return name;
@@ -83,5 +90,8 @@ public class Product implements Serializable {
 	}
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+	public ZonedDateTime get_timestamp() {
+		return _timestamp;
 	}
 }

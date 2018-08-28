@@ -1,6 +1,7 @@
 package com.solace.demo.utahdabc.datamodel;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 import org.springframework.data.redis.core.RedisHash;
 
@@ -13,6 +14,12 @@ public class ProductInventoryData implements Serializable {
 	private String productStatus;
 	private Product product;
 	private StoreInventory storeInventory;
+	private ZonedDateTime _timestamp;
+	
+	public ProductInventoryData() {
+		_timestamp = ZonedDateTime.now();
+	}
+	
 	public int getWarehouseInventoryQty() {
 		return warehouseInventoryQty;
 	}
@@ -43,5 +50,7 @@ public class ProductInventoryData implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
+	public ZonedDateTime get_timestamp() {
+		return _timestamp;
+	}
 }
