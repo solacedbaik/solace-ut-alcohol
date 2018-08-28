@@ -1,6 +1,6 @@
 package com.solace.demo.utahdabc.datamodel;
 
-public class Product 
+public class Product
 {
 	private String name;
 	private String div_code;
@@ -9,8 +9,13 @@ public class Product
 	private int size;
 	private int csc;
 	private double price;
+	private double lcboPrice;
+	
 	private String status;
 	private String SPA;
+	
+	private String tags;
+	
 	public String getName() {
 		return name;
 	}
@@ -64,5 +69,17 @@ public class Product
 	}
 	public void setSPA(String sPA) {
 		SPA = sPA;
+	}
+	public double getLcboPrice() {
+		return lcboPrice;
+	}
+	public void setLcboPrice(double lcboPrice) {
+		this.lcboPrice = lcboPrice;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
 	}
 }
