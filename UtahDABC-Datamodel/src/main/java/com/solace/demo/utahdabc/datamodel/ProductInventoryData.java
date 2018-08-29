@@ -14,10 +14,10 @@ public class ProductInventoryData implements Serializable {
 	private String productStatus;
 	private Product product;
 	private StoreInventory storeInventory;
-	private ZonedDateTime _timestamp;
+	private ZonedDateTime creationTimestamp;
 	
 	public ProductInventoryData() {
-		_timestamp = ZonedDateTime.now();
+		creationTimestamp = ZonedDateTime.now();
 	}
 	
 	public int getWarehouseInventoryQty() {
@@ -50,7 +50,7 @@ public class ProductInventoryData implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public ZonedDateTime get_timestamp() {
-		return _timestamp;
+	public ZonedDateTime getCreationTimestamp() {
+		return creationTimestamp;
 	}
 }

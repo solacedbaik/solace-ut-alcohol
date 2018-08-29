@@ -19,10 +19,10 @@ public class Product implements Serializable {
 	
 	private String tags;
 	
-	private ZonedDateTime _timestamp;
+	private ZonedDateTime creationTimestamp;
 	
 	public Product() {
-		_timestamp = ZonedDateTime.now();
+		creationTimestamp = ZonedDateTime.now();
 	}
 	
 	public String getName() {
@@ -91,7 +91,7 @@ public class Product implements Serializable {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
-	public ZonedDateTime get_timestamp() {
-		return _timestamp;
+	public ZonedDateTime getCreationTimestamp() {
+		return creationTimestamp;
 	}
 }
