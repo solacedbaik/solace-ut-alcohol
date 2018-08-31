@@ -1,14 +1,8 @@
 package com.solace.demo.utahdabc.datamodel;
 
-import java.io.Serializable;
 import java.time.ZonedDateTime;
 
-import org.springframework.data.redis.core.RedisHash;
-
-@RedisHash("ProductInventoryData")
-public class ProductInventoryData implements Serializable {
-	private static final long serialVersionUID = -4917080369962626760L;
-	
+public class ProductInventoryData {
 	private int warehouseInventoryQty;
 	private int warehouseOnOrderQty;
 	private String productStatus;

@@ -1,10 +1,8 @@
 package com.solace.demo.utahdabc.datamodel;
 
-import java.io.Serializable;
 import java.time.ZonedDateTime;
 
-public class Product implements Serializable {
-	private static final long serialVersionUID = 2432837060554236279L;
+public class Product {
 	private String name;
 	private String div_code;
 	private String dept_code;
@@ -13,7 +11,6 @@ public class Product implements Serializable {
 	private int csc;
 	private double price;
 	private double lcboPrice;
-	private String lcboUrl;
 	
 	private String status;
 	private String SPA;
@@ -94,11 +91,5 @@ public class Product implements Serializable {
 	}
 	public ZonedDateTime getCreationTimestamp() {
 		return creationTimestamp;
-	}
-	public String getLcboUrl() {
-		return lcboUrl;
-	}
-	public void setLcboUrl(String lcboUrl) {
-		this.lcboUrl = lcboUrl;
 	}
 }
