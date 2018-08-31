@@ -13,6 +13,7 @@ public class Product implements Serializable {
 	private int csc;
 	private double price;
 	private double lcboPrice;
+	private String lcboUrl;
 	
 	private String status;
 	private String SPA;
@@ -93,5 +94,11 @@ public class Product implements Serializable {
 	}
 	public ZonedDateTime getCreationTimestamp() {
 		return creationTimestamp;
+	}
+	public String getLcboUrl() {
+		return lcboUrl;
+	}
+	public void setLcboUrl(String lcboUrl) {
+		this.lcboUrl = lcboUrl;
 	}
 }
