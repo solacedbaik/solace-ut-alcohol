@@ -5,11 +5,16 @@ public class StoreInventory {
 	private String storeName;
 	private int productQty;
 	private String storeAddress;
-	private double storeGeoLat;
-	private double storeGeoLng;
+	
+	private Location location;
 	
 	private String storeCity;
 	private String storePhone;
+	
+	public StoreInventory() {
+		location = new Location();
+	}
+	
 	public String getStoreID() {
 		return storeID;
 	}
@@ -46,17 +51,7 @@ public class StoreInventory {
 	public void setStorePhone(String storePhone) {
 		this.storePhone = storePhone;
 	}
-	public double getStoreGeoLat() {
-		return storeGeoLat;
+	public Location getLocation() {
+		return location;
 	}
-	public void setStoreGeoLat(double storeGeoLat) {
-		this.storeGeoLat = storeGeoLat;
-	}
-	public double getStoreGeoLng() {
-		return storeGeoLng;
-	}
-	public void setStoreGeoLng(double storeGeoLng) {
-		this.storeGeoLng = storeGeoLng;
-	}
-
 }
