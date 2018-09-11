@@ -1,8 +1,10 @@
 package com.solace.demo.utahdabc.datamodel;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 
-public class Product {
+public class Product implements Serializable {
+	private static final long serialVersionUID = -6347265174559864359L;
 	private String name;
 	private String div_code;
 	private String dept_code;

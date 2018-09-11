@@ -18,7 +18,7 @@ public class StoreTransaction {
 	public StoreTransaction() {
 		creationTimestamp = ZonedDateTime.now();
 		setLocation(new Location());
-		productsPurchased = new PurchaseLineItem[] {};
+		productsPurchased = new PurchaseLineItem[0];
 		
 		this.transactionID = _nextID.getAndIncrement();
 	}
@@ -29,10 +29,6 @@ public class StoreTransaction {
 
 	public int getTransactionID() {
 		return transactionID;
-	}
-
-	public void setTransactionID(int transactionID) {
-		this.transactionID = transactionID;
 	}
 	
 	public String getStoreID() {
@@ -74,11 +70,22 @@ public class StoreTransaction {
 	public void setTotalTransactionAmount(float totalTransactionAmount) {
 		this.totalTransactionAmount = totalTransactionAmount;
 	}
+	
+	public static PurchaseLineItem createLineItem(String productName, int csc, int quantity, float unitPrice) {
+		PurchaseLineItem li = new PurchaseLineItem();
+		li.setProductName(productName);
+		li.setCsc(csc);
+		li.setQuantity(quantity);
+		li.setUnitPrice(unitPrice);
+		return li;
+	}
 
 	public static class PurchaseLineItem {
 		private String productName;
+		private int csc;
 		private int quantity;
-		private float totalLineAmount;
+		private float unitPrice;
+				
 		public String getProductName() {
 			return productName;
 		}
@@ -92,10 +99,21 @@ public class StoreTransaction {
 			this.quantity = quantity;
 		}
 		public float getTotalLineAmount() {
-			return totalLineAmount;
+			return unitPrice * quantity;
 		}
-		public void setTotalLineAmount(float totalLineAmount) {
-			this.totalLineAmount = totalLineAmount;
+
+		public float getUnitPrice() {
+			return unitPrice;
+		}
+		
+		public void setUnitPrice(float unitPrice) {
+			this.unitPrice = unitPrice;
+		}
+		public int getCsc() {
+			return csc;
+		}
+		public void setCsc(int csc) {
+			this.csc = csc;
 		}
 	}	
 }
