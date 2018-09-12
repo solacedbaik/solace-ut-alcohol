@@ -1,5 +1,6 @@
 package com.solace.demo.utahdabc.datamodel;
 
+import java.text.NumberFormat;
 import java.time.ZonedDateTime;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,7 +14,7 @@ public class StoreTransaction {
 	private String storeAddress;
 	private Location location;
 	private PurchaseLineItem[] productsPurchased;	
-	private float totalTransactionAmount;
+	private double totalTransactionAmount;
 
 	public StoreTransaction() {
 		creationTimestamp = ZonedDateTime.now();
@@ -63,18 +64,26 @@ public class StoreTransaction {
 		this.productsPurchased = productsPurchased;
 	}
 
-	public float getTotalTransactionAmount() {
+	public double getTotalTransactionAmount() {
 		return totalTransactionAmount;
 	}
 
-	public void setTotalTransactionAmount(float totalTransactionAmount) {
+	public void setTotalTransactionAmount(double totalTransactionAmount) {
 		this.totalTransactionAmount = totalTransactionAmount;
 	}
 	
-	public static PurchaseLineItem createLineItem(String productName, int csc, int quantity, float unitPrice) {
+	@Override
+	public String toString() {
+		return "ID: " + transactionID + 
+			" Store: " + storeID + 
+			" Address: " + storeAddress +
+			" Total $:" + NumberFormat.getCurrencyInstance().format(totalTransactionAmount) +
+			" Items: " + productsPurchased.length;	
+	}
+	
+	public static PurchaseLineItem createLineItem(String productName, int quantity, double unitPrice) {
 		PurchaseLineItem li = new PurchaseLineItem();
 		li.setProductName(productName);
-		li.setCsc(csc);
 		li.setQuantity(quantity);
 		li.setUnitPrice(unitPrice);
 		return li;
@@ -82,9 +91,8 @@ public class StoreTransaction {
 
 	public static class PurchaseLineItem {
 		private String productName;
-		private int csc;
 		private int quantity;
-		private float unitPrice;
+		private double unitPrice;
 				
 		public String getProductName() {
 			return productName;
@@ -98,22 +106,14 @@ public class StoreTransaction {
 		public void setQuantity(int quantity) {
 			this.quantity = quantity;
 		}
-		public float getTotalLineAmount() {
+		public double getTotalLineAmount() {
 			return unitPrice * quantity;
 		}
-
-		public float getUnitPrice() {
+		public double getUnitPrice() {
 			return unitPrice;
 		}
-		
-		public void setUnitPrice(float unitPrice) {
+		public void setUnitPrice(double unitPrice) {
 			this.unitPrice = unitPrice;
-		}
-		public int getCsc() {
-			return csc;
-		}
-		public void setCsc(int csc) {
-			this.csc = csc;
 		}
 	}	
 }
