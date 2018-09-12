@@ -77,7 +77,7 @@ public class StoreTransaction {
 		return "ID: " + transactionID + 
 			" Store: " + storeID + 
 			" Address: " + storeAddress +
-			" Total $:" + NumberFormat.getCurrencyInstance().format(totalTransactionAmount) +
+			" Total: " + NumberFormat.getCurrencyInstance().format(totalTransactionAmount) +
 			" Items: " + productsPurchased.length;	
 	}
 	
