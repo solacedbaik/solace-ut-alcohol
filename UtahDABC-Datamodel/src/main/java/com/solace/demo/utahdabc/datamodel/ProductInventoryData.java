@@ -14,7 +14,7 @@ public class ProductInventoryData implements Serializable {
 	private ZonedDateTime creationTimestamp;
 	
 	public ProductInventoryData() {
-		creationTimestamp = ZonedDateTime.now();
+		refreshTimestamp();
 	}
 	
 	public int getWarehouseInventoryQty() {
@@ -50,4 +50,7 @@ public class ProductInventoryData implements Serializable {
 	public ZonedDateTime getCreationTimestamp() {
 		return creationTimestamp;
 	}
+	public void refreshTimestamp() {
+		creationTimestamp = ZonedDateTime.now();
+	}	
 }
